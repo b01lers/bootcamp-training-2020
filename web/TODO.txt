@@ -1,0 +1,7 @@
+Finish updating lesson readme: currently on line 89 at Interactive Demo 1
+
+Add startup script for sql and php
+Add user to mysql group?
+Change burp example to just modify request or something similar.
+Finish php example --> just XSS demo.
+    - Install php

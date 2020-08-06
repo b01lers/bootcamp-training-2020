@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Example 0</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <style>
+  .disable-select {
+      user-select: none; /* supported by Chrome and Opera */
+     -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+     -ms-user-select: none; /* Internet Explorer/Edge */
+  }
+  </style>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1 class="display-1">Basic Devtools Example</h1>
+    <h3>Press F12 or right click -> inspect element to open the built in dev tools for your browser!</h3>
+  </div>
+
+  <!-- Part 1: Look at the comments, they're helpful! first flag: b0ctf{web_example_1!}-->
+
+  <div class="container">
+    <div class="row">
+      <div id="column 1" class="col-sm-4">
+        <h3>Inspect Element</h3>
+        <p>Inspect element is one of the most useful tools for web challenges</p>
+        <p>It's got a bunch of useful tools</p>
+        <ol>
+          <li>Inspector: View all of the html and inline css and javascript</li>
+          <li>Console: To run javascript in your local browser</li>
+          <li>Debugger: A built in javascript debugger</li>
+          <li>Style Editor: Views css</li>
+          <li>Performance: Shows cpu usage</li>
+          <li>Memory: Shows memory usage</li>
+          <li>Network: View the full request and response for everything the page loads</li>
+          <li>Storage: Shows cookies that the site is storing on your computer</li>
+          <li>Accessibility: Info for screen readers</li>
+        </ol>
+      </div>
+
+      <!-- Part 2: CSS time! Figure out how to uncover the flags that are definitely hidden -->
+      <div id="column 2" class="col-sm-4">
+        <h3>CSS</h3>
+        <h4>Can you guess what's under here?</h4>
+        <div class="disable-select" style="background-color: black; pointer-events: none; user-select: none">
+          <p style="color: black;">b0ctf{web_example_2!!}</p>
+        </div>
+        <p>Okay, you can see exactly what is under there, but can you uncover it?</p>
+        <h4>This one is kinda harder</h4>
+        <div clsas="disable-select" style="opacity: 0">
+          <div>
+            <button type="button" class="btn btn-danger" onclick="window.location='flag3'" disabled="False">Click me!</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: Javascript, most modern stuff nowadays is in Javascript, or JS as the cool kids call it -->
+      <div id="column 3" class="col-sm-4">
+        <h3>Javascript</h3>
+        <p>Javascript runs locally* in your browser to allow websites to be dynamic. Dynamic in this context is intentionally broad because JS can do things from animating a button to hashing a password before sending it to a website.</p>
+        <p>* Some technologies use JS as a server such as NodeJS, etc...</p>
+        <p>The following is a Javascript login that is completely client side, take a look and see if you can figure out the username and password (or just jump straight to the page itself)</p>
+        <script>
+          function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if(username === "admin" && password === "passw0rD") window.location='flag4';
+            else document.getElementById("alert").style.display = 'block';
+          }
+          function close_alert() {
+            document.getElementById("alert").style.display = 'none';
+          }
+        </script>
+        <table class="table table-borderless">
+          <tr>
+            <td>
+              <h3>Login</h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Username:
+            </td>
+            <td>
+              <input id="username" type="text"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Password:
+            </td>
+            <td>
+              <input id="password" type="password"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+            </td>
+          </tr>
+        </table>
+
+        <div id="alert" class="alert alert-danger" style="display: none">
+          <button type="button" class="close" onclick="close_alert()">&times;</button>
+          <strong>Login Failed!</strong> Invalid username or password
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

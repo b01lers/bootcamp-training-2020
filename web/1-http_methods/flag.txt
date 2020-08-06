@@ -1,0 +1,7 @@
+b0ctf{part2_is_GETting_robots.txt}
+b0ctf{
+part2_
+is_GET
+ting_r
+obots.
+txt}

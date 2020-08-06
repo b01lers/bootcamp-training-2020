@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flag 4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+  <script>
+    function unscramble() {
+      let scrambled = document.getElementById("flag").innerText;
+      let unscrambled = scrambled.split('');
+      unscrambled[0] = scrambled[14];
+      unscrambled[1] = scrambled[23];
+      unscrambled[2] = scrambled[16];
+      unscrambled[3] = scrambled[20];
+      unscrambled[4] = scrambled[32];
+      unscrambled[5] = scrambled[27];
+      unscrambled[6] = scrambled[29];
+      unscrambled[7] = scrambled[26];
+      unscrambled[8] = scrambled[5];
+      unscrambled[9] = scrambled[13];
+      unscrambled[10] = scrambled[4];
+      unscrambled[11] = scrambled[2];
+      unscrambled[12] = scrambled[0];
+      unscrambled[13] = scrambled[7];
+      unscrambled[14] = scrambled[6];
+      unscrambled[15] = scrambled[12];
+      unscrambled[16] = scrambled[15];
+      unscrambled[17] = scrambled[3];
+      unscrambled[18] = scrambled[25];
+      unscrambled[19] = scrambled[30];
+      unscrambled[20] = scrambled[10];
+      unscrambled[21] = scrambled[8];
+      unscrambled[22] = scrambled[9];
+      unscrambled[23] = scrambled[28];
+      unscrambled[24] = scrambled[11];
+      unscrambled[25] = scrambled[22];
+      unscrambled[26] = scrambled[17];
+      unscrambled[27] = scrambled[19];
+      unscrambled[28] = scrambled[16];
+      unscrambled[29] = scrambled[24];
+      unscrambled[30] = scrambled[1];
+      unscrambled[31] = scrambled[21];
+      unscrambled[32] = scrambled[18];
+      console.log(unscrambled.join(''));
+    }
+  </script>
+
+  <div class="jumbotron text-center">
+    <h1 id="flag" class="display-1">_rt_niisis_idebecs}eten0ujl{_cscf</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h3>Oh no, it seems like the flag got messed up somehow, wonder how that could have happened ¯\_(ツ)_/¯</h3>
+    </div>
+  </div>
+</body>
+</html>

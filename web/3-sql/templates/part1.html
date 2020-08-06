@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SQL Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1 class="display-1">SQL Example 1</h1>
+  </div>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="part1">Part 1 <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="part2">Part 2</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <p>This is the first SQL example. This is meant to be a super simple example of selecting items from databases. You control the whole SQL query. Don't worry you are only given permissions to read the information. Basic SQL SELECT syntax is: <code>SELECT [column] FROM [table_name];</code> where you replace [column] with the column you want and table_name with the table you want to select from.</p>
+      </br>
+      <p>Two tables in the database <code>default_db</code> are:</p>
+      <ul>
+        <li>basic_table</li>
+        <li>basic_table_names</li>
+      </ul>
+      </br>
+      <p>(There could be more!)</p>
+      </br>
+      <p>With mySQL you can add conditionals to your queries, this is useful if you are limited to the amount of data you can view at one time. Another thing to know is the <code>information_schema</code> database that you have access to. This database contains information about the entire database instance. This includes database names, table names, and column names. Knowing your way around this is a very useful skill.</p>
+      </br>
+      <p>An example query is <code>SELECT * FROM basic_table;</code></p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <h3>Query:</h3>
+      </div>
+
+      <div class="col-sm-10">
+        <form action="part1" method="post">
+          <input type="text" name="query" style="width:80%"/>
+          <button type="submit">Query</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      {% if results == "none" %}
+      {% elif results %}
+      <h3>Query Results:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              {% if results[0] == "basic_table" %}
+              <td>ID</td>
+              <td>String</td>
+              <td>Int</td>
+              {% elif results[0] == "basic_table_names" %}
+              <td>ID</td>
+              <td>Name</td>
+              {% endif %}
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for row in results %}
+            {% if loop.first %}
+            {% else %}
+            <tr>
+              {% for col in row %}
+              <td>{{col}}</td>
+              {% endfor %}
+            </tr>
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      {% elif error %}
+      <h3>Error: {{error}}</h3>
+      {% else %}
+      <h3>Search Results: None</h3>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

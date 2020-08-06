@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GET</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1 class="display-1">GET successful</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h2 id="flag">Flag pt 1 of 6: 'b0ctf{'</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h2>Where are the other parts?</h2>
+      <p>There are 9 unique HTTP methods, but I have chosen the 6 most frequently used to hide the flags. You get a part when you make a successful HTTP request with that method. If you want to know all 9 you can check the summaries <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">Here</a></p>
+      </br>
+      <ol>
+        <li><code>GET</code> This method is what your browser sends to get the contennt of a web page or the requested resource.</li>
+        <li><code>POST</code> This method is used to send data to a specific destination. An example of this is a login form uses a <code>POST</code> method to submit your username and password to the server. When you send this request you should include a body after the request headers.</li>
+        <li><code>OPTIONS</code> This method is used to find out which HTTP methods a resource expects.</li>
+        <li><code>HEAD</code> This method returns only the headers from a <code>GET</code> request. This is a fastway for checking status codes before continuing a long part of a script.</li>
+        <li><code>PUT</code> This method writes data to the requested resource. This is useful to write your own exploit code.</li>
+        <li><code>DELETE</code> This method deletes the specified resource.</li>
+      </ol>
+    </div>
+
+    <div class="row">
+      <h2>How do you make other types of requests</h2>
+      <p>The easiest way to do this is with a graphical program like <a href="https://www.getpostman.com/">Postman</a>. But if you want to be a 1337 h4x0r you can use a command line tool called <code>curl</code> like so: <code>curl -X [HTTP METHOD] www.google.com</code> or the python requests library or pwntools</p>
+      <p>All methods that can have a body check that the bobdy is not null so make sure you send any data. If you're using curl look into the -d flag.</p>
+    </div>
+  </div>
+</body>
+</html>

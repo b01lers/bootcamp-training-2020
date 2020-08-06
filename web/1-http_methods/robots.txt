@@ -1,0 +1,25 @@
+#=-------------------------------------------=#
+# README
+# Robots.txt is a text file that
+# define boundaries for web scrapers.
+# A web scraper is a bot someone makes
+# to follow all links on web pages to
+# build a map or to archive content.
+# They should read the robots.txt file
+# before following the link so they
+# don't flood the server with requests
+# from non users.
+# Flag: b0ctf{congrats_welcome_to_the_botnet}
+#=-------------------------------------------=#
+
+User-agent: *
+Disallow: /
+
+# No search result pages
+Disallow: /*?
+
+# Chrome new tab page
+Disallow: /chrome_newtab
+
+User-agent: ia_archiver
+Disallow: /
