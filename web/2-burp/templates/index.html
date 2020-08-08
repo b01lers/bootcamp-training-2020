@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Example 2</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-</head>
+  <head>
+    <title>Burp Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </head>
 
-<body>
-  <div class="jumbotron text-center">
-    <h1 class="display-1">Burp Example</h1>
-  </div>
+  <body>
+    <div class="jumbotron text-center">
+      <h1 class="display-1">Burp Example</h1>
+    </div>
 
-  <div class="container">
-    <form action="/" method="post">
-      <div class="form-group row align-items-center">
-        <label for="uname" class="col-sm-2 col-form-label"><strong>Username</strong></label>
-        <input class="form-control" type="text" placeholder="Enter Username or admin" name="uname" required>
+    <div class="container">
+      <div>
+        <h3 class="text-center">Repeater</h3>
+        <p>
+          The repeater is a very useful part of burp, it allows you to change
+          the request until you get something that works
+        </p>
+        <p>
+          The easiest way to set it up from an intercepted request. Type in any
+          username and password, then click 'Login' to send a post request.
+        </p>
+        <p>
+          Once you see it in the Proxy --> Intercept window, click 'Action',
+          then 'Send to Repeater'
+        </p>
+        <p>
+          Click the repeater tab and you should see the request on the left and
+          an empty response on the right.
+        </p>
+        <p>
+          Use the 'send' button to send the request and update the response box
+        </p>
       </div>
+      <div>
+        <form action="/" method="post">
+          <div class="form-group row align-items-center">
+            <label for="username" class="col-sm-2 col-form-label"
+              ><strong>Username</strong></label
+            >
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Enter Username"
+              name="username"
+              required
+            />
+          </div>
 
-      <div class="form-group row align-items-center">
-        <label for="psw" class="col-sm-2 col-form-label"><strong>Password</strong></label>
-        <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
-      </div>
+          <div class="form-group row align-items-center">
+            <label for="password" class="col-sm-2 col-form-label"
+              ><strong>Password</strong></label
+            >
+            <input
+              class="form-control"
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              required
+            />
+          </div>
 
-      <button type="submit">Login</button>
-    </form>
+          <button type="submit">Login</button>
+        </form>
 
-    {% if error %}
-    <div class="row">
-      <div class="alert alert-warning alert-dismissible fade show">
-        <strong>{{error}}</strong>
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {% if error %}
+        <div class="row">
+          <div class="alert alert-warning alert-dismissible fade show">
+            <strong>{{error}}</strong>
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
-    {% endif %}
-  </div>
-</body>
+  </body>
 </html>

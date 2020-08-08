@@ -31,8 +31,8 @@
     will help you and I'll be checking in to see if I can help clarify anything as well.
 
 
-### Interactive Demo 0
-- So instead of lecturing for a couple hours, I've prepared some demos to go over.
+### Interactive Demo 1
+- So instead of lecturing for a couple hours, I've prepared some demos to go over. This is a win win because I get to talk less and you guys get to get to do something instead of just sit there.
 - They are in your docker container already **TODO where??**
 - This demo is intended to show how useful the developer tools in your browser are.
 - Before you begin I have to assume you all know nothing about how a website works so stick with me while I cover some basics.
@@ -77,55 +77,78 @@
 
 
 - This first demo has 4 flags to find.
-**Do I say this or nah?**
+**Do I say this or say it later?**
 - You may also notice that you have source and a writeup. These are practice challenges and are meant to help you get in the mindset of
     problem solving. Yes looking at the source & writeup might be the easiest and you'll be the first one to solve the challenge,
     but then you'll be sitting there for 10 minutes without anything to do. I will go over the solutions at the end so everyone can understand
     how to solve each part.
 - To start it go into type `./web/0-basic_dev_tools.sh`
 - This will start the web server for the basic dev_tools example and store the logs in `~/web/logs/0-basic_dev_tools.log`
-
-
-### Interactive Demo 1
-- This demo is all about different HTTP methods. By browsing the web you tend to only use GET and POST, but there are more defined.
-- This demo walks you through the other methods and how to send them.
-- There are 2 flags with this demo and there is a part 2. Once you get the flag from part 1 you should use that as a hint to finding part 2.
-
-
-### Quick burp demo
-- [https://github.com/opsxcq/docker-vulnerable-dvwa](https://github.com/opsxcq/docker-vulnerable-dvwa)
-- dvwa `docker run --rm -it -p 80:80 vulnerables/web-dvwa`
-- localhost/setup.php
-- pass: `admin` `password`
-- Brute force
-- You'll be able to try to brute force into a website Friday
+**10-15 mins**
+- Go over solutions
 
 
 ### Interactive Demo 2
-- To start off we need to install the burp certificate so our browser doesn't throw a security error when we try to intercept our traffic.
+- This next demo is all about different HTTP methods. By browsing the web you tend to only use GET and POST, but there are more defined.
+- Remember when I said there was a special language that websites and webservers use to communicate? The name of it is HTTP and you used to have to type it into the nav bar to get to websites. HTTP is a standard**(?)** that operates on the **session?** layer.
+- HTTP has a lot of defined methods, **Mozilla methods list**.
+    - GET, this is what browsers send to 'get' or request resrources from a web server. This can be anything from the html index, or getting a picture, or css stylesheet.
+    - POST, this is what browsers use to send data to a web server. This is commonly found when you hit a login button, or submit information to register for an account.
+    - OPTIONS, if this is implemented, this will tell a browser what options are okay to use on a specific url.
+```
+GET / HTTP/1.1
+Host 127.0.0.1
+```
+- One note on http methods: they are supposed to do what the 'standard' says, but the server can interpret the request however it wants.
+    - The most common example is when you make a request to google.com. You aren't requesting an html file, but the server sends one anyway.
+
+
+- This demo walks you through the other methods and how to send them.
+- There are 2 flags with this demo. Use the first flag as a hint to help you find the second flag.
+- To start it go into type `./web/1-http_methods.sh`
+- This will start the web server for the http_methods example and store the logs in `~/web/logs/1-http_methods.log`
+**10-15 mins**
+- Go over solutions
+
+## Day 2
+- Welcome to the second and final 1337 web exploitation b00tc4mp session. We're going to get into some more complex topics so again please ask questions if things don't make sense.
+- I'm going to explain burp, which is another tool that can help in some challenges.
+### Interactive Demo 3
+- **Note: to use this tool for https websites you have to install a certificate, but we aren't going to go over that process, you can do that on your own later**
 - [Install burp certificates](https://support.portswigger.net/customer/portal/articles/1783075-installing-burp-s-ca-certificate-in-your-browser)
+- **Note: a proxy switcher just makes it easier to switch off the intercepting proxy**
 - [Set up proxy switcher for firefox with foxyproxy](https://howtotechglitz.com/using-burp-foxyproxy-to-easily-switch-between-proxy-settings-null-bytes-wonderhowto/)
 
 #### Part 1 what is the proxy
-- This tab hanndles all of the intercepted traffic, you get to view your request before you send it and can change it however you like.
+- This tab handles all of the intercepted traffic, you get to view your request before you send it and can change it however you like.
 - This is nice because it gives you a quick look into what the request is and if there is anything being sent from the website that is hidden.
 - **Note** This can get crowded if you've got a lot of windows open, so make sure to open a fresh window or close your tabs.
 - **Note** You can also forget that you have this on and so when you go to visit a page it will appear as if you can't connect to it because the request is stuck in burp.
-- **Note** Please don't spider the challs it just follows links and crawls a website, but it generates a ton of traffic
 - Editing a request
 
 #### Part 2 what is the repeater
 - This tab allows you to repeatedly change one request as many times as you'd like and see if the response changes.
 
-#### Part 3 intruder
-- This tab allows you to send predifined values over and over again. You can use this to brute force a login.
-- Load in password list (only use 500 worst passwords for this)
+#### Part 3 what is the intruder
+- This tab allows you to send predefined values over and over again. You can use this to brute force a login.
+- **Note** ctf challenges usually don't like to make brute force challenges because they're kinda stale, but if you have to brute force something, don't use burp, the free version is rate limited and is super slow.
 
+- A non graphical way is through python. The requests library can script interactions with a website and is super useful in ctf challenges.
 
-### Interactive Demo 3
-- This is a demo about SQL. My reccommendation to all of you is to teach yourself more about databases by taking a databases course or building a project with a database to see how people use databases and how to build one yourself.
+- This demo is an example that burp excels at.
+- There's only 1 flag
+- To start it go into type `./web/2-burp.sh`
+- This will start the web server for the burp example and store the logs in `~/web/logs/2-burp.log`
+**5-10 mins**
+- Go over solutions
+    - Show how you can intercept response to remove rick roll redirect as well
+
+### Interactive Demo 4
+- This is a demo about SQL. My recommendation to all of you is to teach yourself more about databases by taking a databases course or building a project with a database to see how people use databases and how to build one yourself.
 - This might be hard for some of you to follow along with but we're here to help so ask questions if you're stuck!
 - 2 Flags
+
+### PHP?
 
 ### XSS game
 - [https://xss-game.appspot.com/](https://xss-game.appspot.com/)
