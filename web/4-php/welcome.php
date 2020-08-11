@@ -6,4 +6,4 @@
         Welcome: <?php echo $_GET['name'];?><br>
         Your comment is: <?php echo $_GET['comment'];?>
     </body>
-</html> 
+</html>

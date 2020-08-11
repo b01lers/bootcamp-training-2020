@@ -148,7 +148,12 @@ Host 127.0.0.1
 - This might be hard for some of you to follow along with but we're here to help so ask questions if you're stuck!
 - 2 Flags
 
-### PHP?
+### Quick XSS Demo
+- Explain XSS
+- Persistent, Reflective, and DOM **?**
+- **Can be interactive if too much time left over**
+    - Phrase as i've done a lot of walkthroughs but here's more of a first challenge for you, this is a form that is vulnerable to XSS. You won't be messing with anyone but yourself so be careful you don't do anything awful.
+- This is just a quick XSS demo, it's also in your container if you want to follow along.
 
 ### XSS game
 - [https://xss-game.appspot.com/](https://xss-game.appspot.com/)

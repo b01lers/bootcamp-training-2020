@@ -8,7 +8,7 @@ build:
 
 run: start
 start:
-	docker run --rm -it --name $(NAME)-run $(NAME)-build
+	docker run --rm -it --name $(NAME)-run -p 5003:5003 $(NAME)-build
 
 exec:
 	docker exec -it $(NAME)-run bash

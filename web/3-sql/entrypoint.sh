@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /challenge && ./db_create.py
-exec /challenge/server.py
+cd /var/www/3-sql && ./db_create.py
+./server.py
