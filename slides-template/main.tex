@@ -13,13 +13,13 @@
 \usepackage{verbatimbox}
 \usepackage{tcolorbox}
 
-\usemintedstyle{gruvbox} 
+\usemintedstyle{paraiso-dark}
 
 \newcommand{\pointthis}[2]{
-        \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
-        (#1) {\underline{#1}};\node[overlay,rectangle callout,%
-        callout relative pointer={(0.2cm,0.7cm)},fill=green!50] at ($(#1.north)+(-.5cm,-1.4cm)$) {#2};}%
-        }%
+    \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
+    (#1) {\underline{#1}};\node[overlay,rectangle callout,%
+    callout relative pointer={(0.2cm,0.7cm)},fill=green!50] at ($(#1.north)+(-.5cm,-1.4cm)$) {#2};}%
+}%
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -33,13 +33,13 @@
 \begin{document}
 
 \begin{frame}
-\titlepage % Print the title page as the first slide
+    \titlepage % Print the title page as the first slide
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+    \frametitle{Overview} % Table of contents slide, comment this block out to remove it
+    \tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
 \end{frame}
 
 \section{An Example Section of the Presentation}
@@ -60,23 +60,63 @@
     \begin{tikzpicture}[scale=.5,draw=lightred,text=invtext]
         \tiny % can also use any from https://tex.stackexchange.com/questions/107057/adjusting-font-size-with-tikz-picture
         \stacktop{}
-            \startframe
-                \cell{char input[32]} \cellcom{RBP - 64}
-                \cell{int * \textit{c}} \cellcom{RBP - 32}
-                \cell{int \textit{b}} \cellcom{RBP - 24}
-                \cell{int \textit{a}} \cellcom{RBP - 16}
-                \cell{Stack Canary} \cellcom{RBP - 8}
-                \cell{Saved RBP} \cellptr{RBP, RSP}
-                \bcell{Saved RIP} \cellcom{RBP + 8}
-            \finishframe{function \\ {\tt foo ()}}
-            \startframe
-                \cell{Stack Canary} \cellcom{RBP - 8}
-                \cell{Saved RBP} \cellptr{RBP, RSP}
-                \bcell{Saved RIP} \cellcom{RBP + 8}
-            \finishframe{function \\ {\tt main ()}}
+        \startframe
+        \cell{char input[32]} \cellcom{RBP - 64}
+        \cell{int * \textit{c}} \cellcom{RBP - 32}
+        \cell{int \textit{b}} \cellcom{RBP - 24}
+        \cell{int \textit{a}} \cellcom{RBP - 16}
+        \cell{Stack Canary} \cellcom{RBP - 8}
+        \cell{Saved RBP} \cellptr{RBP, RSP}
+        \bcell{Saved RIP} \cellcom{RBP + 8}
+        \finishframe{function \\ {\tt foo ()}}
+        \startframe
+        \cell{Stack Canary} \cellcom{RBP - 8}
+        \cell{Saved RBP} \cellptr{RBP, RSP}
+        \bcell{Saved RIP} \cellcom{RBP + 8}
+        \finishframe{function \\ {\tt main ()}}
         \stackbottom{}
     \end{tikzpicture}
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{How Could That Be Exploited?}
+    \begin{columns}[c]
+
+        \column{.5\textwidth}
+        \textbf{Example Code} \\
+        \begin{minted}[autogobble]{c}
+            int main(void) {
+                int authorized[2];
+                int username[32];
+                authorized[0] = 0x0
+                for (int i = 0;
+                i <= 32;
+                i++) {
+                    username[i] = 0x1
+                }
+            }
+        \end{minted}
+
+        \column{.5\textwidth}
+        \hspace{-1.8cm} % negative horizontal space to align properly
+        \begin{tikzpicture}[scale=.5, draw=lightred, text=invtext]
+            \tiny
+            \stacktop{}
+            \startframe
+            \cell{Stack} \coordinate (stack) at (currentcell.east);
+            \cell{\ldots}
+            \cell{Heap}
+            \cell{Data}
+            \cell{Text}
+            \finishframe{\textbf{Program's \\ memory space}}
+            \drawstruct{(5,3)}
+            \structcell{int authorized[2]}
+            \structcell{int username[32]}
+            \structcell{\ldots} \coordinate(O1) at (currentcell.west);
+
+            \draw[->] (O1) .. controls (O1 |- stack) .. (stack);
+        \end{tikzpicture}
+    \end{columns}
+\end{frame}
 
 \end{document}
