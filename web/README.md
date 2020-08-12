@@ -147,13 +147,33 @@ Host 127.0.0.1
 - This is a demo about SQL. My recommendation to all of you is to teach yourself more about databases by taking a databases course or building a project with a database to see how people use databases and how to build one yourself.
 - This might be hard for some of you to follow along with but we're here to help so ask questions if you're stuck!
 - 2 Flags
+**10-15 mins**
+- Go over solutions
 
 ### Quick XSS Demo
-- Explain XSS
-- Persistent, Reflective, and DOM **?**
-- **Can be interactive if too much time left over**
-    - Phrase as i've done a lot of walkthroughs but here's more of a first challenge for you, this is a form that is vulnerable to XSS. You won't be messing with anyone but yourself so be careful you don't do anything awful.
+- What is XSS?
+- XSS stands for cross site scripting
+- The basic concept is that users can execute code into a browser. Typically it's a script tag like: `<script>alert()</script>` into a website.
+- With code execution, almost anything can be done so it's a very serious vulnerability.
+
+- 3 types of XSS: Persistent, Reflected, and DOM
+
+#### Persistent / Stored
+- Forum comment, can post a `<script>` tag and the server will send it back to any users that retreive the resource it's stored in.
+
+#### Reflected
+- Input from user is sent 'reflected' back from the server
+- User sends malicious link
+- It's still from the server
+
+#### DOM
+- Something that modifies the DOM / Document Object Module (the html document) in a browser
+
+- Can be interactive if too much time left over
+    - I've done a lot of demos, so here's your first challenge. This is a form that is vulnerable to XSS.
+    - Just remember that this is local so do anything super bad to yourself.
 - This is just a quick XSS demo, it's also in your container if you want to follow along.
 
-### XSS game
+### Other resources
 - [https://xss-game.appspot.com/](https://xss-game.appspot.com/)
+- []()
