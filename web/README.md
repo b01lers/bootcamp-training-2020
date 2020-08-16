@@ -169,6 +169,10 @@ Host 127.0.0.1
 #### DOM
 - Something that modifies the DOM / Document Object Module (the html document) in a browser
 
+![hmm](./web_exploitation_hmm.png)
+- If someone were to send you a malicious link this is one of the ways they'd be able to do malicious things to your browser.
+- Another thing which they could do is a CSRF (Cross Site Request Forgery), but I'm not going to go over that in this talk.
+
 - Can be interactive if too much time left over
     - I've done a lot of demos, so here's your first challenge. This is a form that is vulnerable to XSS.
     - Just remember that this is local so do anything super bad to yourself.
@@ -176,4 +180,5 @@ Host 127.0.0.1
 
 ### Other resources
 - [https://xss-game.appspot.com/](https://xss-game.appspot.com/)
-- []()
+- [https://www.hackthebox.eu/](https://www.hackthebox.eu/)
+- [https://www.hackthissite.org/](https://www.hackthissite.org/)
