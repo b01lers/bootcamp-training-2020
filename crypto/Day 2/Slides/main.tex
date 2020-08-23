@@ -1,0 +1,145 @@
+\documentclass{beamer}
+
+\mode<presentation> { \usetheme{gruvbox} }
+\setbeamerfont{frametitle}{size=\huge}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage{listings}             % Include the listings-package
+\usepackage{minted}
+\usepackage{tikz}
+\usepackage{drawstack}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows,chains,positioning,fit,shapes, arrows.meta, arrows}
+\usepackage{verbatimbox}
+\usepackage{tcolorbox}
+
+\usemintedstyle{paraiso-dark}
+
+\newcommand{\pointthis}[2]{
+    \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
+    (#1) {\underline{#1}};\node[overlay,rectangle callout,%
+    callout relative pointer={(0.2cm,0.7cm)},fill=green!50] at ($(#1.north)+(-.5cm,-1.4cm)$) {#2};}%
+}%
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Cryptography Day 2]{\huge \textbf{Cryptography Day 2}} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Brandon Hernandez} % Your name
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+    \titlepage % Print the title page as the first slide
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Overview} % Table of contents slide, comment this block out to remove it
+    \tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+\section{Brief Review}
+\begin{frame}
+    \frametitle{Brief Review}
+    \begin{itemize}
+        \item Classical Crypto
+
+    \end{itemize}
+\end{frame}
+
+\section{Stream Ciphers}
+\begin{frame}
+    \frametitle{Stream Ciphers}
+    \begin{itemize}
+    	\item One-Time Pad
+    \end{itemize}
+\end{frame}
+
+\section{Block Ciphers}
+\begin{frame}
+    \frametitle{Block Ciphers}
+    \begin{itemize}
+    	\item AES mode of operations
+    \end{itemize}
+\end{frame}
+
+\section{Diffie-Hellman}
+\begin{frame}
+    \frametitle{Diffie-Hellman}
+\end{frame}
+
+
+\section{RSA}
+\begin{frame}
+    \frametitle{The RSA Cryptosystem}
+\end{frame}
+\subsection{The RSA Problem}
+\begin{frame}
+    \frametitle{The RSA Problem}
+    \begin{itemize}
+        \item Consider two large primes, $p$ and $q$
+        \item $N = pq$
+        \item Consider $e$, $m$, and $c$, where $e,c, m \in \mathbb{Z}$
+        \item $C \equiv m^{e} \textrm{(mod N)}$
+    \end{itemize}
+\end{frame}
+\subsection{Construction}
+\begin{frame}
+    \frametitle{Construction}
+    \begin{itemize}
+        \item Consider two large primes, p and q
+        \item Let our modulus, $N = pq$ ($\mathbb{Z}/N\mathbb{Z}$)
+        \item Our public key, $e$, where $gcd(\phi{N},e) = 1$ and $1 < e < \phi{N}$
+        \item The private key, $d$, where $d*e \equiv 1 (\textrm{mod} \phi{N})$
+    \end{itemize}
+\end{frame}
+
+\subsection{Encryption}
+\begin{frame}
+    \frametitle{Encryption}
+    \begin{itemize}
+        \item Given $N$, $m$, and $e$
+        \item $C \equiv m^{e} (mod N)$
+    \end{itemize}
+\end{frame}
+
+\subsection{Decryption}
+\begin{frame}
+    \frametitle{Decryption}
+    \begin{itemize}
+        \item Given $N$, $C$, and $d$
+        \item $m \equiv C^{d} \equiv m^{e*d} (mod N)$
+        \item \textbf{Remeber:} $e*d \equiv 1 (mod \phi{N})$
+    \end{itemize}
+\end{frame}
+
+\subsection{Decryption}
+\begin{frame}
+    \frametitle{Decryption}
+    \begin{itemize}
+        \item Given $N$, $C$, and $d$
+        \item $m \equiv C^{d} \equiv m^{e*d} (mod N)$
+        \item \textbf{Remeber:} $e*d \equiv 1 (mod \phi{N})$
+    \end{itemize}
+\end{frame}
+
+
+\section{Closing Thoughts}
+\begin{frame}
+    \frametitle{What's left?}
+    \begin{itemize}
+    	\item Elliptic Curve Cryptography
+       	\item Post Quantum Cryptography
+    	\begin{itemize}
+    		\item Lattice-Based Cryptography
+    		\item LWE
+    		\item Multivariate Cryptograhy
+    	\end{itemize}
+    \end{itemize}
+\end{frame} 
+
+\end{document} 
