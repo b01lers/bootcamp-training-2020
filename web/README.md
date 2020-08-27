@@ -75,7 +75,7 @@
 #### Storage
 - You can view the cookies that the domain is storing in your browser. You can edit the values here as well.
 
-
+#### Demo Start
 - This first demo has 4 flags to find.
 **Do I say this or say it later?**
 - You may also notice that you have source and a writeup. These are practice challenges and are meant to help you get in the mindset of
@@ -90,7 +90,7 @@
 
 ### Interactive Demo 2
 - This next demo is all about different HTTP methods. By browsing the web you tend to only use GET and POST, but there are more defined.
-- Remember when I said there was a special language that websites and webservers use to communicate? The name of it is HTTP and you used to have to type it into the nav bar to get to websites. HTTP is a standard**(?)** that operates on the **session?** layer.
+- Remember when I said there was a special language that websites and webservers use to communicate? The name of it is HTTP and you used to have to type it into the nav bar to get to websites. HTTP is a protocol that operates on the application layer.
 - HTTP has a lot of defined methods, **Mozilla methods list**.
     - GET, this is what browsers send to 'get' or request resrources from a web server. This can be anything from the html index, or getting a picture, or css stylesheet.
     - POST, this is what browsers use to send data to a web server. This is commonly found when you hit a login button, or submit information to register for an account.
@@ -103,6 +103,7 @@ Host 127.0.0.1
     - The most common example is when you make a request to google.com. You aren't requesting an html file, but the server sends one anyway.
 
 
+#### Demo start
 - This demo walks you through the other methods and how to send them.
 - There are 2 flags with this demo. Use the first flag as a hint to help you find the second flag.
 - To start it go into type `./web/1-http_methods.sh`
@@ -118,6 +119,7 @@ Host 127.0.0.1
 - [Install burp certificates](https://support.portswigger.net/customer/portal/articles/1783075-installing-burp-s-ca-certificate-in-your-browser)
 - **Note: a proxy switcher just makes it easier to switch off the intercepting proxy**
 - [Set up proxy switcher for firefox with foxyproxy](https://howtotechglitz.com/using-burp-foxyproxy-to-easily-switch-between-proxy-settings-null-bytes-wonderhowto/)
+- This tool is similar to Postman, but it is for a different purpose
 
 #### Part 1 what is the proxy
 - This tab handles all of the intercepted traffic, you get to view your request before you send it and can change it however you like.
