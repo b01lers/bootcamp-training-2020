@@ -1,8 +1,9 @@
+from hashlib import sha256
 g = 2
 p = 13
 A = 3
 B = 6
-ctext = bytearray.fromhex('8ea65d963acfbf849079dccc44d00c9ca2677b0cc97a54645345804ecabc5356')
+ctext = bytearray.fromhex('93a6599033cdb38b8548d1ca48ea11abac7a613bcd6c50691943865883f80156')
 
 #Much better algorithms 
 #https://www.alpertron.com.ar/DILOG.HTM

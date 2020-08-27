@@ -1,7 +1,7 @@
 #Setup
 from hashlib import sha256
 
-flag = b'{REDACTED}'
+flag = b'flag{learning_dhkey_exchange!!!}'
 assert len(flag) == 32
 g = 2
 p = 13
