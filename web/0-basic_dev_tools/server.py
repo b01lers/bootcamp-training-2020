@@ -19,6 +19,10 @@ def flag2():
 def flag3():
     return render_template('flag3.html')
 
+@app.route('/flag4')
+def flag4():
+    return render_template('flag4.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
