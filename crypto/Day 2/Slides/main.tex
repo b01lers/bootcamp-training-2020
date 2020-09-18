@@ -45,26 +45,7 @@
 \section{Brief Review}
 \begin{frame}
     \frametitle{Brief Review}
-    \begin{itemize}
-        \item Classical Crypto
-
-    \end{itemize}
-\end{frame}
-
-\section{Stream Ciphers}
-\begin{frame}
-    \frametitle{Stream Ciphers}
-    \begin{itemize}
-    	\item One-Time Pad
-    \end{itemize}
-\end{frame}
-
-\section{Block Ciphers}
-\begin{frame}
-    \frametitle{Block Ciphers}
-    \begin{itemize}
-    	\item AES mode of operations
-    \end{itemize}
+    In crypto, we utilize hard problems in mathematics to ensure that breaking the cryptosystem is not trivial.
 \end{frame}
 
 \section{Diffie-Hellman}
@@ -76,6 +57,8 @@
 \section{RSA}
 \begin{frame}
     \frametitle{The RSA Cryptosystem}
+    Public-key cryptosystem based around the difficulty in factoring a composite integer into primes.
+
 \end{frame}
 \subsection{The RSA Problem}
 \begin{frame}
@@ -83,7 +66,7 @@
     \begin{itemize}
         \item Consider two large primes, $p$ and $q$
         \item $N = pq$
-        \item Consider $e$, $m$, and $c$, where $e,c, m \in \mathbb{Z}$
+        \item Consider $e$, $m$, and $c$, where $e,C, m \in \mathbb{Z}$
         \item $C \equiv m^{e} \textrm{(mod N)}$
     \end{itemize}
 \end{frame}
@@ -117,16 +100,25 @@
     \end{itemize}
 \end{frame}
 
-\subsection{Decryption}
+\subsection{Construction Example}
 \begin{frame}
-    \frametitle{Decryption}
-    \begin{itemize}
-        \item Given $N$, $C$, and $d$
-        \item $m \equiv C^{d} \equiv m^{e*d} (mod N)$
-        \item \textbf{Remeber:} $e*d \equiv 1 (mod \phi{N})$
-    \end{itemize}
+  \frametitle{Construction Example}
+\end{frame}
+\subsection{}
+\begin{frame}
+  \frametitle{Basic Exploit Example 1} 
+  \emph{Refer to Day2/Examples/cube}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Basic Exploit Example 2 (Factoring)}
+  \emph{Refer to Day2/Examples/multiPrime}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Basic Exploit Example 3 (Hastad)}
+  \emph{Refer to Day2/Examples/hastad}
+\end{frame}
 
 \section{Closing Thoughts}
 \begin{frame}
