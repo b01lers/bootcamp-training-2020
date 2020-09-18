@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SQL Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1 class="display-1">SQL Examples</h1>
+  </div>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="part1">Part 1</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="part2">Part 2</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <p>
+      SQL is an important tool for websites. It is a fast and easy way to display specific and dynamic information to the end user.
+      </p>
+      <p>
+      In this exmample we will be going over relational databases only (specifically MySQL). A relational database is a database that consists of databases, tables, pre defined columns and rows.
+      </p>
+      <ul>
+        <li>
+          <h4>Databases</h4>
+          <p>Multiple databases can exist in the same instance. These databases store different tables</p>
+        </li>
+
+        <li>
+          <h4>Tables</h4>
+          <p>Tables store information in columns and rows</p>
+        </li>
+
+        <li>
+          <h4>Columns</h4>
+          <p>Columns have a set layout with a name, type (string, int), and can have a max or min size. You can think about this as pre defining a variable you will use later.</p>
+        </li>
+
+        <li>
+          <h4>Rows</h4>
+          <p>Rows are entries in the database table, this contains all of the information in the database organized how the columns are described</p>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <h4>To visualize this, imagine a table called 'books' like this:</h4>
+    </div>
+
+    <div class="row">
+      <h2>Books</h2>
+    </div>
+
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>id (int)</td>
+            <td>title (string)</td>
+            <td>author (string)</td>
+            <td>chapters (int)</td>
+            <td>pages (int)</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>David Copperfield</td>
+            <td>Charles Dickens</td>
+            <td>64</td>
+            <td>624</td>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>Hamlet</td>
+            <td>William Shakespeare</td>
+            <td>5</td>
+            <td>500</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>The Sun Also Rises</td>
+            <td>Ernest Hemingway</td>
+            <td>19</td>
+            <td>260</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Catch 22</td>
+            <td>Joseph Heller</td>
+            <td>42</td>
+            <td>453</td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>To Kill a Mockingbird</td>
+            <td>Harper Lee</td>
+            <td>31</td>
+            <td>296</td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>The Great Gatsby</td>
+            <td>F. Scott Fitzgerald</td>
+            <td>9</td>
+            <td>218</td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>Pride and Prejudice</td>
+            <td>Jane Austen</td>
+            <td>61</td>
+            <td>432</td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>Crime and Punishment</td>
+            <td>Fyodor Dostoyevsky</td>
+            <td>38</td>
+            <td>545</td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>The Grapes of Wrath</td>
+            <td>John Steinbeck</td>
+            <td>30</td>
+            <td>464</td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>Lord of the Flies</td>
+            <td>William Golding</td>
+            <td>12</td>
+            <td>224</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
