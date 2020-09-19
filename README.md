@@ -36,7 +36,7 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 
 ## Web Exploitation <a name="web" />
 
-#### Day 1:
+#### [Day 1](https://www.youtube.com/watch?v=FvSDpqVoeNQ):
 - Basic developer tools:
     - Inspect Element
     - JS Console
@@ -47,7 +47,7 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 - HTTP methods and internet infrastructure
 - CURL + Postman
 
-#### Day 2:
+#### [Day 2](https://www.youtube.com/watch?v=k962ILypsvM):
 - PHP
 - Sessions
 - Hashing and type confusion
@@ -58,9 +58,13 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
     - DOM
 - Burp Suite
 
+#### Extras:
+- [Burp Suite Demo](https://www.youtube.com/watch?v=F_CuwnTUc54)
+- [PHP XSS Demo](https://www.youtube.com/watch?v=RStTjA32f8A)
+
 ## Reverse Engineering <a name="re" />
 
-#### Day 1:
+#### [Day 1](https://www.youtube.com/watch?v=j6nj3uMp-dg):
 - Hardware and Data Representations
 - Language Types
     - Compiled
@@ -82,7 +86,7 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 - High level RE process
 - Assembly construct: selection
 
-#### Day 2:
+#### [Day 2](https://www.youtube.com/watch?v=9zhFV-j8VyE):
 - Assembly construct: selection (review)
 - Assembly construct: iteration
 - Structures, parameter passing
