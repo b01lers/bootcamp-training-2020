@@ -64,38 +64,38 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 
 ## Reverse Engineering <a name="re" />
 
-#### [Day 1](https://www.youtube.com/watch?v=j6nj3uMp-dg):
+#### [Day 1](https://www.youtube.com/watch?v=j6nj3uMp-dg) `rev/day_1/slides`:
 - Hardware and Data Representations
-- Language Types
+- Language Types `rev/day_1/01-language-types`
     - Compiled
     - Intepreted
     - JIT
     - Bytecode compiled
 - Compiled languages
-- The C compiler
-- ELF format
-- Linux system calls + how programs are run
+- The C compiler `rev/day_1/02-compilation-steps`
+- ELF format `rev/day_1/03-readelf-sections`
+- Linux system calls + how programs are run `rev/day_1/04-running-programs-on-linux`
 - Introduction to GDB and debugging
-- The dynamic loader (interpreter)
+- The dynamic loader (interpreter) `rev/day_1/05-dynamic-call`
 - Program images in memory
-- Introduction to assembly language
+- Introduction to assembly language `rev/day_1/06-dynamic-call-asm`
 - Important x86-64 instructions
 - Stack and Heap
 - Stack frames + function calls
 - Calling convention + ABI
 - High level RE process
-- Assembly construct: selection
+- Assembly construct: selection `rev/day_1/07-selection-challenge`
 
 #### [Day 2](https://www.youtube.com/watch?v=9zhFV-j8VyE):
-- Assembly construct: selection (review)
-- Assembly construct: iteration
-- Structures, parameter passing
+- Assembly construct: selection (review) `rev/day_2/00-selection`
+- Assembly construct: iteration `rev/day_2/02-iteration`
+- Structures `rev/day_2/03-data-structures`
+- Parameter passing `rev/day_2/01-function-calls`
 - Advanced Ghidra features
     - Decompilation
     - Struct editor
     - CFG
 - Obfuscation, stripping, optimization
-
 
 ## Cryptography <a name="crypto" />
 
@@ -123,7 +123,7 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 
 ### Reverse Engineering
 
-Recommended Reading:
+REcommended Reading:
 - Hacking: The Art of Exploitation, by Jon Erickson
 - Reversing: Secrets of Reverse Engineering, by Eldad Eilam
 - Assembly Language for Intel-Based Computers, by Kip R. Irvine
@@ -132,14 +132,14 @@ Recommended Reading:
 - The Ghidra Book, by Chris Eagle and Kara Nance
 - Just look through [here](https://nostarch.com/catalog/security) really.
 
-Recommended Tutorials + References:
+REcommended Tutorials + References:
 - [Azeria ARM Tutorial](https://azeria-labs.com/writing-arm-assembly-part-1/)
 - [x86 Instruction Reference](https://www.felixcloutier.com/x86/)
 - [Intel Official x86 Reference](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
 - [RPISEC Malware Analysis](https://github.com/RPISEC/Malware)
 - [RPISEC MBE](https://github.com/RPISEC/MBE)
 
-Recommended Practice:
+REcommended Practice:
 - [Challenges.re](https://challenges.re/)
 - [Crackmes.one](https://crackmes.one/)
 - [Microcorruption](https://microcorruption.com/)
@@ -149,9 +149,6 @@ Recommended Practice:
 - [W3Challs.com](https://w3challs.com/challenges/list/reversing)
 - [io.netgarage.org](http://io.netgarage.org/)
 - [Crackme Forum](https://0x00sec.org/c/reverse-engineering/challenges/13)
-- [
-
-
 
 ### Cryptography
 
