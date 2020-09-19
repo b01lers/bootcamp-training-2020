@@ -157,3 +157,5 @@ REcommended Practice:
 - [Pwn College](https://pwn.college/)
 
 ## Tools <a name="tools" />
+
+<span style="color:white">Reverse Engineering, RE, Awesome, Tutorial, Guide, Learn, Exploitation, CTF, Capture The Flag, Cryptography, Practical, Pwn, pwn, PWN, Binary Exploitation, Web Exploitation, Web CTF, RE CTF, Pwn CTF, Crypto CTF, Training, Bootcamp, bootcamp, Purdue, University, b01lers, b01lers bootcamp, ctf challenges, practice ctf, ctf teaching</span>
