@@ -1,0 +1,5 @@
+set env LD_LIBRARY_PATH .
+# set disassembly-flavor intel
+# info file
+# info function
+# set disassemble-next-line on

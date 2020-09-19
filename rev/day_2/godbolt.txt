@@ -1,0 +1,4 @@
+Loop Types: https://godbolt.org/z/zznG98
+Simple Structure: https://godbolt.org/z/xWjWx9
+Complex Structure: https://godbolt.org/z/ej8a8n
+Selection Recap: https://godbolt.org/z/sn58jv
