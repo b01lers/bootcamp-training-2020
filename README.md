@@ -98,6 +98,21 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 - Obfuscation, stripping, optimization
 
 ## Cryptography <a name="crypto" />
+#### [Day 1](https://www.youtube.com/watch?v=LIDevHuNbpA):
+- What is Cryptography:
+- Substitution Ciphers
+- Caesar Ciphers
+- Modular Arithmetic
+- Representation of Data
+- XOR
+    - Properties
+    - Applications
+- RSA Preview
+
+#### [Day 2](https://www.youtube.com/watch?v=UswI_weqY7Q):
+- Diffie-Hellman
+- Asymmetric and Symmetric Cryptography
+- RSA
 
 ## Binary Exploitation <a name="pwn" />
 
