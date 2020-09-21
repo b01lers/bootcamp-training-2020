@@ -1,4 +1,4 @@
-PRIVATE NOTE: Getting familiar with pwntools, negative index to overwrite variable and buffer overflow variable. (Same challenge)
+PwRIVATE NOTE: Getting familiar with pwntools, negative index to overwrite variable and buffer overflow variable. (Same challenge)
 
 # PWN Example 01
 
@@ -34,7 +34,7 @@ setvbuf(stdout, 0, 2, 0);
 ```
 These disable line buffering in the program to make it easer to interact with the program over the network. Generally, you will not need to worry about these lines of code.
 
-There are two bugs in this example that we will exploit, but there are technically 4 vulnerabilities in the example. **Before reading on, go ahead and look for the vulnerabilities yourself.**
+There are two bugs in this example that we will exploit, but there are at least 4 vulnerabilities in the example. **Before reading on, go ahead and look for the vulnerabilities yourself.**
 
 PRIVATE NOTE: Does anyone in chat see the bugs?
 
@@ -141,7 +141,7 @@ $3 = 'A' <repeats 32 times>
 gef➤  p game_state.score
 $4 = 0x42424242
 ```
-We overwrote score with `BBBB`, which displayed as a hex number, is `0x42424242`. To find the easter egg at line 50, we will need to send `0x00001338`, encoded as bytes (which will look like `\x00\x00\x13\x38`.
+We overwrote score with `BBBB`, which displayed as a hex number, is `0x42424242`. To find the easter egg at line 50, we will need to send `0x00001338`, encoded as bytes (which will look like `\x00\x00\x13\x38`).
 
 ### Bugs #3 and #4
 
