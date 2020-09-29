@@ -1,5 +1,3 @@
-Example 5 (20 min) Format Strings
-
 # PWN Example 05
 
 This example will introduce format string vulnerabilities and how they are used for leaks and arbitrary write.
@@ -72,7 +70,4 @@ Hello 0xd4e04f6065b0271c
 
 The first example shows printf being used to leak a value that is already on the stack. But what if we want to read an address not in the stack, like somewhere in the GOT? If our input is on the stack, we can access our own input with our format specifiers, and use one like `%s` which will dereference the address given and print it as a string.
 
-#### Calculating Stack offset
-```
-"%9$p    AAAAAAAA"
-```
+This explanation is incomplete. Watch the video on YouTube or read the solution script to continue.

@@ -1,7 +1,3 @@
-Example 4 (20 min) GOT and libc (Leaking and using) - BSS unbounded array indexes
- - Mention RELRO
- - Demo onegadget
-
 # PWN Example 04
 
 This example will explain the Global Offset Table - GOT, and how it can be used in some cases to bypass PIE protections.
@@ -16,7 +12,7 @@ If you open up a library in your favorite disassembler, it would look much like 
 
 When we run our program, we can see that libc is loaded, and that it is in contiguous memory by printing the addresses of functions in libc.
 ```
-TODO: gdb example04
+Try these in GDB:
 p printf
 p system
 info process maps
@@ -94,8 +90,6 @@ The bug here is the same as in example01: An unbounded index. In this challenge,
 
 A good target GOT entry in this challenge is strtol. This is partly because it is called with a controlable input, and at a good location in the program. Identifying the best entries in the GOT table can sometimes be a puzzle, depending on the layout of the program.
 
-TODO: Screenshot of Ghidra / Binja
-
 Since we will need to know this offset, we can do math on the addresses in Ghidra, or we can use pwntools again, which can calculate the offset based on the available symbols. Sometimes it is not clear which symbols to use, so you can list all symbols in an interactive pwntools prompt with:
 ```python
 >>> binary.symbols
@@ -117,6 +111,6 @@ offset = (strtol_got - numbers) / 8
 
 Once we have the offset, we can leak the address of strtol, a libc function.
 
-TODO: Make atoi `system`
+The rest of this explanation is incomplete. You can watch the lesson on youtube for more details.
 
-TODO: Note about one gadget
+The final step will be to calculate the address of system based on the address of `strtol`, then overwrite the atoi entry in the GOT table with the address of system `system`

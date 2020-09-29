@@ -14,12 +14,12 @@ void readInput() {
     }
 }
 
-void win() {
-    system("/bin/sh");
-}
-
 void go() {
     readInput();
+}
+
+void win() {
+    puts("You Win!");
 }
 
 int main() {

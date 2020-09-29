@@ -1,27 +1,31 @@
-// Example 7 (20 min) Stack Canary & Pie Leaks (no null termination): tell it how many bytes to read, zeros that many.
-// - Leak stack canary, then overwrite ret addr
-// - Note that this technique can also be used to leak PIE (Add that to this demo?)
-#include<stdio.h>
-#include<string.h>
+// Example 7 (20 min) Format Strings (leak GOT, overwrite ret addr)
 
-void readInput(char * buffer) {
-    char c;
-    int i = 0;
-    c = fgetc(stdin);
-    while(c != '\n') {
-        buffer[i] = c;
-        c = fgetc(stdin);
-        i = i + 1;
-    }
-}
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 int main() {
     setvbuf(stdin, 0, 2, 0);
     setvbuf(stdout, 0, 2, 0);
 
-    char buffer[32];
-    do { 
-        readInput(buffer);
-        printf("%s\n", buffer);
-    } while(strcmp(buffer, "exit") != 0);
+    printf("%p\n", & setvbuf);
+
+    char * a = malloc(32);
+
+    char * b = malloc(32);
+    free(b);
+
+    fgets(b, 128, stdin);
+
+    b = malloc(32);
+    char * c = malloc(32);
+
+    fgets(c, 128, stdin);
+
+    free(a);
+    free(b);
+
+    exit(0);
 }

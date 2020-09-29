@@ -1,5 +1,3 @@
-Example 2 (30 min): Buffer overflow to win function and win2(int arg) function. win2 requires arguments and some rop
-
 # PWN Example 02
 
 This next example will demonstrate how to exploit a buffer overflow to hijack the control flow of a program. There are no obvious variables to overwrite, yet an attacker can still call execute code that there is no path to execute.

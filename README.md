@@ -115,7 +115,18 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 - RSA
 
 ## Binary Exploitation <a name="pwn" />
+#### [Day 1](https://www.youtube.com/watch?v=za4cjoUujTk):
+- pwntools
+- Stack Overflows
+- Return Oriented Programming
+- Partial Overwrites
+- Global Offset Table & Libc
 
+#### [Day 2](https://www.youtube.com/watch?v=svicu1gyfek):
+- Protections Overview
+- Stack Canaries & Ret2Libc
+- printf
+- Intro to Heap
 
 ## Hardware Hacking + RF <a name="hardware" />
 
@@ -152,7 +163,6 @@ REcommended Tutorials + References:
 - [x86 Instruction Reference](https://www.felixcloutier.com/x86/)
 - [Intel Official x86 Reference](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
 - [RPISEC Malware Analysis](https://github.com/RPISEC/Malware)
-- [RPISEC MBE](https://github.com/RPISEC/MBE)
 
 REcommended Practice:
 - [Challenges.re](https://challenges.re/)
@@ -169,9 +179,19 @@ REcommended Practice:
 
 ### Binary Exploitation
 
+References/Practive:
+- [CTF Wiki](https://ctf-wiki.github.io/ctf-wiki/index-en/)
+- [malloc.c](https://sources.debian.org/src/glibc/2.28-10/malloc/malloc.c/)
+- [how2heap](https://github.com/shellphish/how2heap)
+- [RPISEC MBE](https://github.com/RPISEC/MBE)
+
+Practice:
 - [Pwn College](https://pwn.college/)
+- [ROP Emporium](https://ropemporium.com)
 
 ## Tools <a name="tools" />
+- [Pwndbg](https://github.com/pwndbg/pwndbg)
+- [GEF](https://github.com/hugsy/gef)
 
 <details><summary>SEO</summary>
     <p>

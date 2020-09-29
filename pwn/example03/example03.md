@@ -1,4 +1,4 @@
-Example 3 (15 min) Partial Overwrite TODO: Skip/Move/Add Technique?
+Example 3 (15 min) Partial Overwrite
 
 # Example 03
 
@@ -7,8 +7,6 @@ This next example will introduce 'PIE' - Position Independent Execution, and one
 ## PIE
 
 You can think of PIE as ASLR for the code segment. If a binary is compiled with PIE, then the address of functions and strings will be at a different location each run.
-
-PRIVATE NOTE: Demonstrate in GDB: `p main`
 
 We can see this in GDB, when we compile with and without pie. By default, GDB will automatically disable PIE to make debugging 'easier', so before starting the program, run `set disable-randomization off`.
 
@@ -64,8 +62,6 @@ The situations where this technique will work are somewhat limited:
 In addition, a brute-force option is sometimes appropriate. You can continue to overwrite the 2nd or 3rd least significant bytes, and run your exploit multiple times until the randomization works out.
 
 ## Example
-
-PRIVATE NOTE: Be willing to skip walking through this example. Also side not of overwriting counter, needing to be done correctly, and as another way to exploit some buffer overflows. If extra time, demo finding that in GDB.
 
 Sometimes you run into weird situations, and your payload isn't working as expected. This is where debugging with gdb can be especially helpful. In this example, your first attempt at a payload might not work. This is because one of your input bytes will overwrite the variable `i`, which determines what offset will be written to. If you notice this, you can set the offset to your desired value, and can continue with your exploitation.
 
