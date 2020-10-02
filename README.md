@@ -174,6 +174,7 @@ REcommended Practice:
 - [W3Challs.com](https://w3challs.com/challenges/list/reversing)
 - [io.netgarage.org](http://io.netgarage.org/)
 - [Crackme Forum](https://0x00sec.org/c/reverse-engineering/challenges/13)
+- [crackmes.de (mirror)](https://tuts4you.com/e107_plugins/download/download.php?view.3152)
 
 ### Cryptography
 
