@@ -130,6 +130,11 @@ Ultimately, the way to become a `1337` hacker is to play CTF as much as possible
 
 ## Hardware Hacking + RF <a name="hardware" />
 
+#### [Day 1](https://www.youtube.com/watch?v=MAXv9pd45Kw)
+- Board components
+- Interfaces
+- Firmware acquisition
+
 
 ## Penetration Testing <a name="pentesting" />
 
